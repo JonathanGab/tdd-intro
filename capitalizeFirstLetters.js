@@ -1,16 +1,11 @@
 const assert = require('assert');
 
 function capitalizeFirstLetters(input) {
-  let output = '';
-  for (let i = 0; i < input.length; i++) {
-    if (i === 0) {
-      output += input[0].toUpperCase();
-    } else {
-      output += input[i];
-    }
-  }
-  return output;
+  const output = input.split(' ').map(firstLetters => firstLetters.charAt(0).toUpperCase() + firstLetters.substring(1));
+  return output.join(' ');
 }
+
+
 
 // Check that capitalizeFirst is a function
 assert.strictEqual(typeof capitalizeFirstLetters, 'function');
@@ -27,4 +22,4 @@ assert.strictEqual(capitalizeFirstLetters('z'), 'Z');
 // Check that it works for an empty string
 assert.strictEqual(capitalizeFirstLetters(''), '');
 
-assert.strictEqual(capitalizeFirstLetters('chaîne avec plusieurs mots'), 'Chaîne avec plusieurs mots')
+assert.strictEqual(capitalizeFirstLetters('i am learning TDD'), 'I Am Learning TDD')
